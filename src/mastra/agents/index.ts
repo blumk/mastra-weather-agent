@@ -15,6 +15,6 @@ export const weatherAgent = new Agent({
 
       Use the weatherTool to fetch current weather data.
 `,
-  model: process.env.MODEL || 'openai/gpt-4o',
+  model: process.env.MODEL || 'anthropic/claude-sonnet-4-20250514',
   tools: { weatherTool },
 });

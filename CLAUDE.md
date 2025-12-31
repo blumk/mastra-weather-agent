@@ -9,9 +9,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Environment Setup
 
-Requires `OPENAI_API_KEY` in `.env` file. Copy from `.env.example`.
+Requires `ANTHROPIC_API_KEY` in `.env` file. Copy from `.env.example`.
 
-Optionally set `MODEL` environment variable to override the default `openai/gpt-4o`.
+Optionally set `MODEL` environment variable to override the default `anthropic/claude-sonnet-4-20250514`.
 
 ## Architecture
 
