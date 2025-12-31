@@ -6,12 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Install dependencies**: `npm install`
 - **Run development server**: `npm run dev` (runs `mastra dev`)
+- **Build for Vercel**: `npm run build` (runs `mastra build`)
 
 ## Environment Setup
 
 Requires `ANTHROPIC_API_KEY` in `.env` file. Copy from `.env.example`.
 
 Optionally set `MODEL` environment variable to override the default `anthropic/claude-sonnet-4-20250514`.
+
+## Vercel Deployment
+
+For production deployment on Vercel, set these environment variables:
+- `ANTHROPIC_API_KEY` - Your Anthropic API key
+- `TURSO_DATABASE_URL` - Turso database URL (e.g., `libsql://your-db.turso.io`)
+- `TURSO_AUTH_TOKEN` - Turso auth token
+
+In Vercel dashboard: Settings > Build and Deployment > Build Command: `npm run build`
 
 ## Architecture
 
