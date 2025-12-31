@@ -20,4 +20,9 @@ export const weatherAgent = new Agent({
   model: process.env.MODEL || 'anthropic/claude-sonnet-4-20250514',
   tools: { weatherTool },
   memory: new Memory(),
+  defaultOptions: {
+    modelSettings: {
+      temperature: 0.5,
+    },
+  },
 });
