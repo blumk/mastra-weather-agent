@@ -4,8 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- **Install dependencies**: `pnpm install`
-- **Run development server**: `pnpm dev` (runs `mastra dev`)
+- **Install dependencies**: `npm install`
+- **Run development server**: `npm run dev` (runs `mastra dev`)
 
 ## Environment Setup
 

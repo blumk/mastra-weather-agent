@@ -3,6 +3,7 @@ import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 
 const agent = new Agent({
+  id: 'activity-planner-agent',
   name: 'Weather Agent',
   model: process.env.MODEL || 'anthropic/claude-sonnet-4-20250514',
   instructions: `
