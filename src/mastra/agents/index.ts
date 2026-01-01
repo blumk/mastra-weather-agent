@@ -3,7 +3,8 @@ import { Memory } from '@mastra/memory';
 import { weatherTool } from '../tools';
 import { storage } from '../storage';
 
-const memory = new Memory({ storage });
+// Memory requires storage - only enable when storage is available
+const memory = storage ? new Memory({ storage }) : undefined;
 
 export const weatherAgent = new Agent({
   id: 'weather-agent',
