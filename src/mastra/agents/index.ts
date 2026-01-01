@@ -1,6 +1,9 @@
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { weatherTool } from '../tools';
+import { storage } from '../storage';
+
+const memory = new Memory({ storage });
 
 export const weatherAgent = new Agent({
   id: 'weather-agent',
@@ -19,7 +22,7 @@ export const weatherAgent = new Agent({
 `,
   model: process.env.MODEL || 'anthropic/claude-sonnet-4-20250514',
   tools: { weatherTool },
-  memory: new Memory(),
+  memory,
   defaultOptions: {
     modelSettings: {
       temperature: 0.5,

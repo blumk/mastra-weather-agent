@@ -1,18 +1,9 @@
 import { Mastra } from '@mastra/core/mastra';
 import { VercelDeployer } from '@mastra/deployer-vercel';
-import { LibSQLStore } from '@mastra/libsql';
 import { PinoLogger } from '@mastra/loggers';
 import { weatherWorkflow } from './workflows';
 import { weatherAgent } from './agents';
-
-// Only use LibSQLStore if Turso is configured (required for Vercel)
-const storage = process.env.TURSO_DATABASE_URL
-  ? new LibSQLStore({
-      id: 'main',
-      url: process.env.TURSO_DATABASE_URL,
-      authToken: process.env.TURSO_AUTH_TOKEN,
-    })
-  : undefined;
+import { storage } from './storage';
 
 export const mastra = new Mastra({
   workflows: { weatherWorkflow },
@@ -21,6 +12,9 @@ export const mastra = new Mastra({
     name: 'Mastra',
     level: 'info',
   }),
+  observability: {
+    default: { enabled: true },
+  },
   storage,
   deployer: new VercelDeployer({
     maxDuration: 60,
