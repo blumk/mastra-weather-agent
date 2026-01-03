@@ -78,14 +78,14 @@ export default function Home() {
 
   return (
     <main className="flex flex-col h-screen max-w-3xl mx-auto">
-      <header className="bg-white border-b px-6 py-4">
-        <h1 className="text-xl font-semibold text-gray-800">Weather Agent</h1>
-        <p className="text-sm text-gray-500">Ask me about the weather anywhere</p>
+      <header className="bg-gray-800 border-b border-gray-700 px-6 py-4">
+        <h1 className="text-xl font-semibold text-gray-100">Weather Agent</h1>
+        <p className="text-sm text-gray-400">Ask me about the weather anywhere</p>
       </header>
 
       <div className="flex-1 overflow-y-auto p-6 space-y-4">
         {messages.length === 0 && (
-          <div className="text-center text-gray-400 mt-20">
+          <div className="text-center text-gray-500 mt-20">
             <p className="text-lg mb-2">Welcome to Weather Agent!</p>
             <p className="text-sm">Try asking: "What's the weather in Tokyo?"</p>
           </div>
@@ -99,8 +99,8 @@ export default function Home() {
             <div
               className={`max-w-[80%] rounded-2xl px-4 py-3 ${
                 message.role === 'user'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white border border-gray-200 text-gray-800'
+                  ? 'bg-indigo-500 text-white'
+                  : 'bg-gray-800 border border-gray-700 text-gray-100'
               }`}
             >
               <p className="whitespace-pre-wrap">{message.content}</p>
@@ -110,11 +110,11 @@ export default function Home() {
 
         {isLoading && messages[messages.length - 1]?.role === 'user' && (
           <div className="flex justify-start">
-            <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3">
+            <div className="bg-gray-800 border border-gray-700 rounded-2xl px-4 py-3">
               <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" />
+                <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-100" />
+                <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce delay-200" />
               </div>
             </div>
           </div>
@@ -123,20 +123,20 @@ export default function Home() {
         <div ref={messagesEndRef} />
       </div>
 
-      <form onSubmit={handleSubmit} className="border-t bg-white p-4">
+      <form onSubmit={handleSubmit} className="border-t border-gray-700 bg-gray-800 p-4">
         <div className="flex gap-3">
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about the weather..."
-            className="flex-1 border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
             disabled={isLoading}
           />
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="bg-indigo-500 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             Send
           </button>
