@@ -1,7 +1,4 @@
 # Weather Agent Template
-
-> **🤖 Fully built by AI (Claude Opus 4.5) in 45 minutes**
-
 This is a template project that demonstrates how to create a weather agent using the Mastra framework. The agent can provide weather information and forecasts based on user queries.
 
 ## Overview
